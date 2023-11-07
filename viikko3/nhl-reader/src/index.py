@@ -16,12 +16,15 @@ def main():
     for player in players:
         if player.nationality not in nationalities:
             nationalities.append(player.nationality)
+    
+    sorted_players = sorted(players, key=lambda player: player.points, reverse=True)
 
     for nationality in nationalities:
-        print(f"\nPlayers from {nationality}:\n")
-        for player in players:
-            if player.nationality == nationality:
-                print(player)
+        if nationality == "FIN":
+            print(f"\nPlayers from {nationality}:\n")
+            for player in sorted_players:
+                if player.nationality == nationality:
+                    print(player)
 
 
 if __name__ == "__main__":
